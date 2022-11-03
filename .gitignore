@@ -3,3 +3,5 @@ dist
 *.log
 logs
 files/*
+.data
+.cache

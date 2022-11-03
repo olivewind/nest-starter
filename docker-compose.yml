@@ -1,23 +1,23 @@
 version: '3'
 
 services:
-  api:
-    restart: always
-    image: dockerhub.datagrand.com/frontend_utils/nest_starter:ci_20221022_cc72e7c
-    container_name: nest_starter_api
-    volumes:
-      - ./files:/usr/src/app/files
-      - ./logs:/usr/src/app/logs
-    environment:
-      SERVER_PORT: 3000
-      DATABASE_URL: mysql://root:root@mysql:3306/nest_starter
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-    depends_on:
-      - mysql
-    ports:
-      - 31000:3000
+  # api:
+  #   restart: always
+  #   image: [换成你的镜像名]
+  #   container_name: nest_starter_api
+  #   volumes:
+  #     - ./files:/usr/src/app/files
+  #     - ./logs:/usr/src/app/logs
+  #   environment:
+  #     SERVER_PORT: 3000
+  #     DATABASE_URL: mysql://root:root@mysql:3306/nest_starter
+  #     REDIS_HOST: redis
+  #     REDIS_PORT: 6379
+  #     REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+  #   depends_on:
+  #     - mysql
+  #   ports:
+  #     - 31000:3000
 
   mysql:
     restart: always
@@ -41,37 +41,37 @@ services:
       - 31003:6379
     command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     volumes: 
-      - ./cache:/data
+      - ./.cache:/data
 
-  elasticsearch:
-    image: elasticsearch:7.8.0
-    container_name: nest_starter_elasticsearch
-    ports:
-      - 31004:9200
-      - 31005:9300
-    environment:
-      # 开启内存锁定
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # 指定单节点启动
-      - discovery.type=single-node
-    ulimits:
-      # 取消内存相关限制 用于开启内存锁定
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - ./elasticsearch/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/logs:/usr/share/elasticsearch/logs
-      - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins
+  # elasticsearch:
+  #   image: elasticsearch:7.8.0
+  #   container_name: nest_starter_elasticsearch
+  #   ports:
+  #     - 31004:9200
+  #     - 31005:9300
+  #   environment:
+  #     # 开启内存锁定
+  #     - bootstrap.memory_lock=true
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #     # 指定单节点启动
+  #     - discovery.type=single-node
+  #   ulimits:
+  #     # 取消内存相关限制 用于开启内存锁定
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   volumes:
+  #     - ./elasticsearch/data:/usr/share/elasticsearch/data
+  #     - ./elasticsearch/logs:/usr/share/elasticsearch/logs
+  #     - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins
 
-  kibana:
-    image: kibana:7.8.0
-    container_name: nest_starter_kibana
-    depends_on:
-      - elasticsearch
-    volumes:
-      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+  # kibana:
+  #   image: kibana:7.8.0
+  #   container_name: nest_starter_kibana
+  #   depends_on:
+  #     - elasticsearch
+  #   volumes:
+  #     - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
 
-    ports:
-      - 31006:5601
+  #   ports:
+  #     - 31006:5601

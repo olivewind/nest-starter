@@ -1,7 +1,5 @@
 # Nest Starter
 
-Nest 示例项目
-
 ## 已有特性
 - [x] 核心架构
   - [x] 请求参数校验
@@ -33,6 +31,8 @@ Nest 示例项目
 - [x] 定时任务（理论上定时任务应该单独拆分服务，这里演示方便和业务模块放在一起）
   
 
+
+
 ## 安装依赖
 ```bash
 $ yarn
@@ -42,7 +42,7 @@ $ yarn
 
 |  变量名       | 用处|   示例|   
 |  ----         | ----  | ----  |
-| DATABASE_URL  |  MYSQL 连接地址 |  `mysql://root:root@127.0.0.1:3006/nest_starter` ｜
+| DATABASE_URL  |  MYSQL 连接地址 |  `mysql://root:root@127.0.0.1:3006/nest_starter` 
 | SERVER_PORT   |  服务端口 | `3000` | 
 | REDIS_HOST    |  Redis 地址  | `172.16.200.176` | 
 | REDIS_PORT    |  Redis 端口 | `31003`| 
@@ -51,14 +51,11 @@ $ yarn
 ## 开发环境
 
 ```bash
-# development
 $ yarn dev
-
-# debug mode
-$ yarn start:debug
-
-# production mode
-$ yarn start:prod
 ```
 
-> 注意请提前准备好 MySQL 和 Redis，可以使用 docker-compose.yaml 直接启动，并使用 [Prisma](https://www.prisma.io/docs/reference/api-reference/command-reference#prisma-migrate) 初始化 MySQL 表结构
+> 请提前准备好 MySQL 和 Redis，可以使用 docker-compose.yaml 直接启动，并使用 [Prisma](https://www.prisma.io/docs/reference/api-reference/command-reference#prisma-migrate) 初始化 MySQL 表结构
+
+
+## 生产部署
+直接使用 [docker-compose.yml](./docker-compose.yml)
