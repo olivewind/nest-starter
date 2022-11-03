@@ -1,0 +1,25 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique @db.VarChar(200)
+  password  String   @db.VarChar(200)
+  nickname  String?  @db.VarChar(200)
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}

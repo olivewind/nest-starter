@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@modules/*": ["src/modules/*"],
+      "@tasks/*": ["src/tasks/*"],
+      "@core/*": ["src/core/*"],
+      "@cache/*": ["src/cache/*"],
+      "@database/*": ["src/database/*"],
+      "@gateways/*": ["src/gateways/*"],
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
+      "@typings/*": ["src/types/*"]
+    }
+  }
+}
