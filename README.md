@@ -42,9 +42,9 @@ $ yarn
 
 |  变量名       | 用处|   示例|   
 |  ----         | ----  | ----  |
-| DATABASE_URL  |  MYSQL 连接地址 |  `mysql://root:root@127.0.0.1:3006/nest_starter` 
+| DATABASE_URL  |  MYSQL 连接 |  `mysql://root:root@127.0.0.1:3006/nest_starter` 
 | SERVER_PORT   |  服务端口 | `3000` | 
-| REDIS_HOST    |  Redis 地址  | `172.16.200.176` | 
+| REDIS_HOST    |  Redis 地址  | `127.0.0.1` | 
 | REDIS_PORT    |  Redis 端口 | `31003`| 
 | REDIS_PASSWORD|  Redis 密码  | `123456` | 
 
